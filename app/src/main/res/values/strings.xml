@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">蚂蚁找客</string>
+    <string name="app_main">精品会员制  拓客系统</string>
+    <string name="app_main2">&#160;&#160;&#160;&#160;拓客不求人</string>
+    <string name="app_main3">&#160;&#160;&#160;&#160;开启拓客新思路</string>
+
+    <!--大廳-->
+    <string name="main_hall_text_id">ID:</string>
+    <string name="main_hall_text_level">LEVEL:</string>
+    <string name="main_hall_text_name">NAME:</string>
+    <string name="main_hall_text_post">推荐人:</string>
+    <string name="main_hall_level_des">等级介绍</string>
+    <string name="main_hall_add">公告</string>
+    <string name="main_hall_more">更多</string>
+    <string name="main_add">公告公告公告公告公告公告公告公告公告公告公告公告公告</string>
+    <string name="hall_text_qq_162123456">客服热线: 4006695566</string>
+    <string name="hall_format">%d/2</string>
+
+    <string-array name="hall_grid_img">
+        <item>@mipmap/main_hall_vip_post</item>
+        <item>@mipmap/main_hall_vip_up_img</item>
+        <item>@mipmap/main_hall_order_img</item>
+        <item>@mipmap/main_hall_home_img</item>
+    </string-array>
+
+    <string-array name="hall_grid_text">
+        <item>推荐会员</item>
+        <item>会员升级</item>
+        <item>蚂蚁订单</item>
+        <item>蚂蚁之家</item>
+    </string-array>
+
+
+    <!--幫助他人注冊-->
+    <string name="regis_for_other">为他人注册</string>
+    <string name="regis_for_other_code">请输入图文验证码</string>
+    <string name="register_for_other_phone">请输入要注册的手机号码</string>
+    <string name="register_for_other_pass">请设置登陆密码</string>
+    <string name="register_for_other_pass_again">请再次确认登陆密码</string>
+    <string name="register_for_other_nick">请输入昵称</string>
+    <string name="register_for_other_wx">请填写微信号</string>
+    <string name="register_for_other_zfb">请填写支付宝号</string>
+    <string name="register">确认注册</string>
+
+    <!--设置-->
+    <string name="setting_icon">头像</string>
+    <string name="setting">设置</string>
+    <string name="setting_nick">昵称</string>
+    <string name="setting_phone">手机号</string>
+    <string name="setting_rail">实名验证</string>
+    <string name="setting_rail_yes">已验证</string>
+    <string name="setting_rail_no">未验证</string>
+    <string name="setting_phone_more">备用手机号</string>
+    <string name="setting_pass">登陆密码</string>
+    <string name="setting_bind_zfb">绑定支付宝</string>
+    <string name="setting_bind_wx">绑定微信</string>
+    <string name="setting_adress">地址管理</string>
+    <string name="setting_positive">确认修改</string>
+    <string name="setting_exit">退出登录</string>
+
+    <!--登录-->
+    <string name="login_login_text">登录</string>
+    <string name="login_user_hint">请输入您的账号</string>
+    <string name="login_pass_hint">请输入您的登陆密码</string>
+    <string name="login_register">注册账号</string>
+    <string name="login_login_btn">登录</string>
+
+    <!--注冊-->
+    <string name="regis">注册</string>
+    <string name="register_phone">请输入手机号码</string>
+    <string name="register_nick">请输入您的昵称</string>
+    <string name="register_call_phone">请填写邀请人手机号码</string>
+
+    <!--行会大厅-->
+    <string name="guild_hall">蚂蚁之家</string>
+
+    <!--会员升级-->
+    <string name="vip_up">会员升级</string>
+    <string name="vip_current">当前等级</string>
+    <string name="vip_next">下一级</string>
+    <string name="vip_text_current">白金会员</string>
+    <string name="vip_text_next">铂金会员</string>
+
+
+    <string name="vip_1">一级白金会员</string>
+    <string name="vip_2">二级白金会员</string>
+    <string name="vip_3">三级白金会员</string>
+
+    <!--蚂蚁订单-->
+    <string name="order">蚂蚁订单</string>
+    <string name="order_start_time">闯关时间:</string>
+    <string name="order_states_ok">已确认</string>
+    <string name="order_check_more">查看详情</string>
+    <string name="order_check_wx">微信:</string>
+    <string name="order_check_zfb">支付宝:</string>
+    <string name="order_check_level">闯关等级:</string>
+
+
+</resources>
