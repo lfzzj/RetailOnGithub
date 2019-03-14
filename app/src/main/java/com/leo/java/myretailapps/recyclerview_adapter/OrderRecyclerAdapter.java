@@ -24,6 +24,13 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Name: OrderRecyclerAdapter
+ * Author: Leo
+ * Comment: // 订单适配器
+ * Date: 2019/3/14 17:02
+ * Modify:
+ */
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.OrderViewHolder> {
     private Context context;
     private List<UserEntity> list;
