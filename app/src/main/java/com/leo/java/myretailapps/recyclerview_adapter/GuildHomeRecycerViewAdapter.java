@@ -35,7 +35,7 @@ public class GuildHomeRecycerViewAdapter extends RecyclerView.Adapter<GuildHomeR
     private List<UserEntity> userEntities;
     private Context context;
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS", Locale.getDefault());
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
     public GuildHomeRecycerViewAdapter(Context context, List<UserEntity> userEntities) {
         this.userEntities = userEntities;

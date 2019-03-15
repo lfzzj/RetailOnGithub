@@ -70,6 +70,7 @@ public class GuildHallFragment extends Fragment {
 
         adapter = new GuildHomeRecycerViewAdapter(getActivity(), users);
         guildItemFrgRecyclerview.setAdapter(adapter);
+        guildItemFrgRecyclerview.setNestedScrollingEnabled(false);
     }
 
     @Override

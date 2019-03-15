@@ -15,6 +15,7 @@
     <string name="main_add">公告公告公告公告公告公告公告公告公告公告公告公告公告</string>
     <string name="hall_text_qq_162123456">客服热线: 4006695566</string>
     <string name="hall_format">%d/2</string>
+    <string name="login_register_text">注册会员,蚂蚁来找客</string>
 
     <string-array name="hall_grid_img">
         <item>@mipmap/main_hall_vip_post</item>
@@ -88,6 +89,12 @@
     <string name="vip_1">一级白金会员</string>
     <string name="vip_2">二级白金会员</string>
     <string name="vip_3">三级白金会员</string>
+    <string name="vip_now_wx">推荐人微信:</string>
+    <string name="vip_wechart_tips">微信号已复制,点击按钮去微信粘贴,搜索好友领取任务吧!</string>
+    <string name="vip_check_progress">闯关进度</string>
+    <string name="vip_start_check_btn">我要闯关</string>
+    <string name="vip_check_tips">您当前关卡为第四关白金会员,要升到下一关,您还需要完成的任务有:\n\n1,完成上一级推荐人给您派发的任务.\n2,完成第九级推荐人给您派发的任务.\n3,您团队下一级会员共有74个,还差7个,请继续推荐新人.\n4,系统检测到您的上级推荐人当前会员关卡低于您的会员关卡,去提醒他升级.\n\n满足以上条件您将升级到第五关.</string>
+    <string name="vip_to_wx">去微信</string>
 
     <!--蚂蚁订单-->
     <string name="order">蚂蚁订单</string>
@@ -97,6 +104,5 @@
     <string name="order_check_wx">微信:</string>
     <string name="order_check_zfb">支付宝:</string>
     <string name="order_check_level">闯关等级:</string>
-
 
 </resources>

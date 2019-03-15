@@ -27,6 +27,7 @@ import com.leo.java.myretailapps.order.OrderAc;
 import com.leo.java.myretailapps.register.HelpOtherRegisterAc;
 import com.leo.java.myretailapps.setting.SettingAc;
 import com.leo.java.myretailapps.util.Util;
+import com.leo.java.myretailapps.util.animation.AnimUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,8 @@ public class MainHallActivity extends AppCompatActivity {
     ImageView weatherImg;
     @BindView(R.id.temp)
     TextView temp;
+    @BindView(R.id.main_hall_register_img)
+    ImageView mainHallRegisterImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,7 @@ public class MainHallActivity extends AppCompatActivity {
         getLocatioin();
 
         Util.getInstance(this).showPermission(this);
+        AnimUtil.getInstance(this).RotationAnim(mainHallRegisterImg);
     }
 
     private void initPager() {
@@ -117,11 +121,14 @@ public class MainHallActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.user_info)
+    @OnClick({R.id.user_info, R.id.register_now_btn})
     public void onViewClicked(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.user_info:
                 startActivity(new Intent(MainHallActivity.this, SettingAc.class));
+                break;
+            case R.id.register_now_btn:
+                startActivity(new Intent(MainHallActivity.this, LoginActivity.class));
                 break;
         }
     }
@@ -203,4 +210,5 @@ public class MainHallActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

@@ -26,6 +26,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Name: GuildActivity
+ * Author: Leo
+ * Comment: //蚂蚁之家
+ * Date: 2019/3/15 15:59
+ * Modify:
+ */
 public class GuildActivity extends AppCompatActivity {
     @BindView(R.id.guild_tabLayout)
     TabLayout guildTabLayout;

@@ -22,9 +22,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
-                android:layout_centerVertical="true"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -33,43 +33,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/weather_img"
+                android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/weather_img"
+                android:layout_toStartOf="@+id/weather_img"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_toStartOf="@+id/weather_img"
-                android:layout_marginEnd="8dp" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/weather_img"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_toLeftOf="@+id/weather"
-                android:layout_toStartOf="@+id/weather"
-                android:layout_marginEnd="4dp" />
+                android:layout_toStartOf="@+id/weather" />
 
             <TextView
                 android:id="@+id/weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/temp"
+                android:layout_marginEnd="2dp"
                 android:layout_marginRight="2dp"
-                android:textColor="@color/white"
-                android:textSize="12sp"
+                android:layout_toLeftOf="@+id/temp"
                 android:layout_toStartOf="@+id/temp"
-                android:layout_marginEnd="2dp" />
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </RelativeLayout>
@@ -128,18 +128,63 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+
             <android.support.v7.widget.CardView
-                android:id="@+id/user_info"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/register_now_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_register_text"
+                        android:textColor="@color/color_ffa200"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="16dp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <ImageView
+                        android:layout_gravity="end"
+                        android:layout_marginRight="16dp"
+                        android:id="@+id/main_hall_register_img"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:src="@mipmap/main_hall_register_img"
+                        android:layout_marginEnd="16dp" />
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                android:focusable="true">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"

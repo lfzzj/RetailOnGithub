@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -24,7 +25,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="24dp">
 
             <TextView
                 android:id="@+id/current_check"
@@ -42,28 +46,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/current_check"
                 android:layout_alignEnd="@id/current_check"
                 android:layout_alignLeft="@id/current_check"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="4dp"
                 android:layout_alignRight="@id/current_check"
                 android:layout_alignStart="@id/current_check"
+                android:layout_below="@id/current_check"
+                android:layout_marginTop="4dp"
+                android:gravity="center_horizontal"
                 android:text="@string/vip_current"
                 android:textColor="@color/grey"
                 android:textSize="12sp" />
 
-            <View
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/current_check"
+                android:layout_alignTop="@id/current_check"
                 android:layout_toEndOf="@+id/current_check"
                 android:layout_toLeftOf="@+id/next_check"
                 android:layout_toRightOf="@+id/current_check"
-                android:layout_toStartOf="@+id/next_check"
-                android:background="@color/grey" />
+                android:layout_toStartOf="@+id/next_check">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/next_check"
@@ -85,14 +96,70 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@id/next_check"
                 android:layout_alignLeft="@id/next_check"
-                android:layout_below="@+id/next_check"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="4dp"
                 android:layout_alignRight="@id/next_check"
                 android:layout_alignStart="@id/next_check"
+                android:layout_below="@+id/next_check"
+                android:layout_marginTop="4dp"
+                android:gravity="center_horizontal"
                 android:text="@string/vip_next"
                 android:textColor="@color/grey"
                 android:textSize="12sp" />
+
+            <SeekBar
+                android:id="@+id/check_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/next_check"
+                android:layout_marginTop="40dp"
+                android:background="@null"
+                android:clickable="false"
+                android:maxHeight="8dp"
+                android:minHeight="8dp"
+                android:progress="25"
+                android:progressDrawable="@drawable/seekbar_layer_seekbar"
+                android:thumb="@drawable/shape_seekbar_thumb"
+                android:thumbOffset="0dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/next_check"
+                android:layout_alignLeft="@id/next_check"
+                android:layout_alignRight="@id/next_check"
+                android:layout_alignStart="@id/next_check"
+                android:layout_below="@+id/check_progress"
+                android:layout_marginTop="4dp"
+                android:gravity="center_horizontal"
+                android:text="@string/vip_check_progress"
+                android:textColor="@color/color_ffa200"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/start_check_btn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/check_progress"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/selector_register_button_shape"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:text="@string/vip_start_check_btn"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/vip_check_tips"
+        android:textColor="@color/color_ffa200"
+        android:textSize="14sp" />
 </LinearLayout>

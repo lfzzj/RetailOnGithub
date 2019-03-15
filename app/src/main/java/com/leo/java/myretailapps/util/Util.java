@@ -2,11 +2,18 @@ package com.leo.java.myretailapps.util;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.view.View;
 import android.widget.Toast;
 
 import com.leo.java.myretailapps.MainHallActivity;
@@ -51,6 +58,7 @@ public class Util {
 
     /**
      * 獲取經緯度
+     *
      * @param lm LocationManager
      * @return Location
      */
@@ -69,9 +77,10 @@ public class Util {
 
     /**
      * 获取权限
+     *
      * @param activity activity
      */
-    public void showPermission(Activity activity){
+    public void showPermission(Activity activity) {
         RxPermissions rxPermissions = new RxPermissions(activity);
         rxPermissions.requestEach(Manifest.permission.ACCESS_FINE_LOCATION)
                 .subscribe(new Observer<Permission>() {
@@ -94,5 +103,42 @@ public class Util {
 
                     }
                 });
+    }
+
+    /**
+     * 复制内容到剪贴板
+     * @param v View
+     */
+    public void CopyToClip(View v,String text) {
+        ClipboardManager cm;
+        ClipData mClipData;
+        //获取剪贴板管理器：
+        cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        // 创建普通字符型ClipData
+        mClipData = ClipData.newPlainText("Label", text);
+        // 将ClipData内容放到系统剪贴板里。
+        if (cm != null) {
+            cm.setPrimaryClip(mClipData);
+            Snackbar.make(v, "复制成功", Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * 跳轉微信
+     *
+     * @param v
+     */
+    public void jumpWX(View v) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            ComponentName cmp = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setComponent(cmp);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // TODO: handle exception
+            Snackbar.make(v, "检查到您手机没有安装微信，请安装后使用该功能", Snackbar.LENGTH_LONG).show();
+        }
     }
 }
