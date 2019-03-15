@@ -34,6 +34,7 @@
         <activity android:name=".view.guild_hall.GuildActivity" />
         <activity android:name=".view.checkpoint.CheckpointAc" />
         <activity android:name=".view.order.OrderAc" />
+        <activity android:name=".view.ad.AdAc" />
     </application>
 
 </manifest>
