@@ -28,12 +28,12 @@
 
         </activity>
 
-        <activity android:name=".register.HelpOtherRegisterAc" />
-        <activity android:name=".setting.SettingAc" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".guild_hall.GuildActivity" />
-        <activity android:name=".checkpoint.CheckpointAc" />
-        <activity android:name=".order.OrderAc" />
+        <activity android:name=".view.register.HelpOtherRegisterAc" />
+        <activity android:name=".view.setting.SettingAc" />
+        <activity android:name=".view.login.LoginActivity" />
+        <activity android:name=".view.guild_hall.GuildActivity" />
+        <activity android:name=".view.checkpoint.CheckpointAc" />
+        <activity android:name=".view.order.OrderAc" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.order;
+package com.leo.java.myretailapps.view.guild_hall;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -10,11 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.leo.java.myretailapps.R;
 import com.leo.java.myretailapps.model.UserEntity;
-import com.leo.java.myretailapps.recyclerview_adapter.OrderRecyclerAdapter;
+import com.leo.java.myretailapps.recyclerview_adapter.GuildHomeRecycerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,23 +23,25 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 @SuppressLint("ValidFragment")
-public class OrderItemFragment extends Fragment {
+public class GuildHallFragment extends Fragment {
     Unbinder unbinder;
     private String typeValue;
+
     List<UserEntity> users;
-    OrderRecyclerAdapter adapter;
+    GuildHomeRecycerViewAdapter adapter;
 
-    @BindView(R.id.order_item_frg_recyclerview)
-    RecyclerView orderItemFrgRecyclerview;
+    @BindView(R.id.guild_item_frg_recyclerview)
+    RecyclerView guildItemFrgRecyclerview;
 
-    public OrderItemFragment(String typeValue) {
+
+    public GuildHallFragment(String typeValue) {
         this.typeValue = typeValue;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.order_item_fragment, container,
+        View view = inflater.inflate(R.layout.guild_hall_fragment, container,
                 false);
         unbinder = ButterKnife.bind(this, view);
         return view;
@@ -61,12 +62,13 @@ public class OrderItemFragment extends Fragment {
             users.add(new UserEntity("0", "0", "www", "库里" + i, "", "", "", "", "", ""));
         }
 
-        orderItemFrgRecyclerview.setNestedScrollingEnabled(false);
+        guildItemFrgRecyclerview.setNestedScrollingEnabled(false);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-        orderItemFrgRecyclerview.setLayoutManager(manager);
+        guildItemFrgRecyclerview.setLayoutManager(manager);
 
-        adapter = new OrderRecyclerAdapter(getActivity(), users);
-        orderItemFrgRecyclerview.setAdapter(adapter);
+        adapter = new GuildHomeRecycerViewAdapter(getActivity(), users);
+        guildItemFrgRecyclerview.setAdapter(adapter);
+        guildItemFrgRecyclerview.setNestedScrollingEnabled(false);
     }
 
     @Override

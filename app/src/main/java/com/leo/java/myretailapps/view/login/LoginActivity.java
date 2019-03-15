@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.login;
+package com.leo.java.myretailapps.view.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.leo.java.myretailapps.R;
-import com.leo.java.myretailapps.register.HelpOtherRegisterAc;
+import com.leo.java.myretailapps.view.register.HelpOtherRegisterAc;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

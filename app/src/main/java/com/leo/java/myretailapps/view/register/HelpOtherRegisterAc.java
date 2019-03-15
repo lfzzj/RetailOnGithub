@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.register;
+package com.leo.java.myretailapps.view.register;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

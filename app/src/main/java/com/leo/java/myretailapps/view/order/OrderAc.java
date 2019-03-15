@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.order;
+package com.leo.java.myretailapps.view.order;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.checkpoint;
+package com.leo.java.myretailapps.view.checkpoint;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

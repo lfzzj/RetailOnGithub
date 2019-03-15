@@ -1,4 +1,4 @@
-package com.leo.java.myretailapps.guild_hall;
+package com.leo.java.myretailapps.view.guild_hall;
 
 
 import android.os.Bundle;
@@ -20,7 +20,6 @@ import com.leo.java.myretailapps.custom.GlideRoundTransform;
 import com.leo.java.myretailapps.util.DisplayUtil;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
