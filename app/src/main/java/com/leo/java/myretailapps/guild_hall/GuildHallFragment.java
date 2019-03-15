@@ -5,12 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.leo.java.myretailapps.R;
+import com.leo.java.myretailapps.model.UserEntity;
+import com.leo.java.myretailapps.recyclerview_adapter.GuildHomeRecycerViewAdapter;
+import com.leo.java.myretailapps.recyclerview_adapter.OrderRecyclerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,11 +26,15 @@ import butterknife.Unbinder;
 
 @SuppressLint("ValidFragment")
 public class GuildHallFragment extends Fragment {
-    @BindView(R.id.type)
-    TextView type;
-
     Unbinder unbinder;
     private String typeValue;
+
+    List<UserEntity> users;
+    GuildHomeRecycerViewAdapter adapter;
+
+    @BindView(R.id.guild_item_frg_recyclerview)
+    RecyclerView guildItemFrgRecyclerview;
+
 
     public GuildHallFragment(String typeValue) {
         this.typeValue = typeValue;
@@ -41,7 +53,23 @@ public class GuildHallFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        type.setText(typeValue);
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        users = new ArrayList<>();
+
+        /*模拟数据*/
+        for (int i = 0; i < 15; i++) {
+            users.add(new UserEntity("0", "0", "www", "库里" + i, "", "", "", "", "", ""));
+        }
+
+        guildItemFrgRecyclerview.setNestedScrollingEnabled(false);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        guildItemFrgRecyclerview.setLayoutManager(manager);
+
+        adapter = new GuildHomeRecycerViewAdapter(getActivity(), users);
+        guildItemFrgRecyclerview.setAdapter(adapter);
     }
 
     @Override

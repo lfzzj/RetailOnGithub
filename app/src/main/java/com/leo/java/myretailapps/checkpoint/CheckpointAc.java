@@ -8,6 +8,13 @@ import android.view.MenuItem;
 
 import com.leo.java.myretailapps.R;
 
+/**
+ * Name: CheckpointAc
+ * Author: Leo
+ * Comment: // 闯关
+ * Date: 2019/3/15 10:04
+ * Modify:
+ */
 public class CheckpointAc extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

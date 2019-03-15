@@ -8,6 +8,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //和风天气ID初始化
         HeConfig.init("HE1903131150551130", "fafc201eadbf4fe3a0789d4e0ae5a259");
         HeConfig.switchToFreeServerNode();
     }

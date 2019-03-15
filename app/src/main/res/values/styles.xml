@@ -10,6 +10,6 @@
     </style>
 
     <style name="SplashStyle" parent="AppTheme">
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 </resources>

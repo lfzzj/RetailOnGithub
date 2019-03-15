@@ -9,11 +9,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.leo.java.myretailapps.R;
 import com.leo.java.myretailapps.adapter.MyFragmentAdapter;
+import com.leo.java.myretailapps.custom.GlideRoundTransform;
+import com.leo.java.myretailapps.util.DisplayUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -24,6 +31,18 @@ public class GuildActivity extends AppCompatActivity {
     TabLayout guildTabLayout;
     @BindView(R.id.guild_viewPager)
     ViewPager guildViewPager;
+    @BindView(R.id.guild_user_icon)
+    ImageView guildUserIcon;
+    @BindView(R.id.guild_user_phone)
+    TextView guildUserPhone;
+    @BindView(R.id.guild_user_level)
+    TextView guildUserLevel;
+    @BindView(R.id.guild_my_post)
+    TextView guildMyPost;
+    @BindView(R.id.guild_my_hall)
+    TextView guildMyHall;
+    @BindView(R.id.guild_my_level_up_1)
+    TextView guildMyLevelUp1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +57,23 @@ public class GuildActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initUI();
+        DataLoad();
     }
+
+    private void DataLoad() {
+        guildUserPhone.setText("13888888888");
+        guildUserLevel.setText(String.format("%s%s", getResources().getString(R.string.order_check_level), getResources().getString(R.string.vip_1)));
+        guildMyPost.setText(String.format("%s%s", getResources().getString(R.string.guild_my_post), "58人"));
+        guildMyHall.setText(String.format("%s%s", getResources().getString(R.string.guild_hall_info), "99人"));
+        guildMyLevelUp1.setText(String.format("%s%s", getResources().getString(R.string.guild_level_up_1), "56人"));
+
+        GlideRoundTransform transform = new GlideRoundTransform(this, DisplayUtil.dip2px(this, 24));
+        transform.setNeedCorner(true, true, true, true);
+        RequestOptions options = new RequestOptions().transform(transform);
+        Glide.with(this).asBitmap().load(R.mipmap.retail_logo).apply(options).into(guildUserIcon);
+
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
