@@ -323,6 +323,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -342,20 +345,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/text_add"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <TextSwitcher
+                        android:id="@+id/ad_textSwitcher"
+                        android:layout_width="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_margin="6dp"
                         android:layout_toEndOf="@+id/text_add_title"
                         android:layout_toLeftOf="@+id/add_line"
                         android:layout_toRightOf="@+id/text_add_title"
                         android:layout_toStartOf="@+id/add_line"
-                        android:lines="1"
-                        android:text="@string/main_add"
-                        android:textColor="@color/color_ffa200"
-                        android:textSize="12sp" />
+                        android:layout_height="wrap_content">
+                    </TextSwitcher>
 
                     <View
                         android:id="@+id/add_line"
@@ -364,6 +364,7 @@
                         android:layout_alignBottom="@id/text_add_title"
                         android:layout_alignTop="@id/text_add_title"
                         android:layout_marginEnd="6dp"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="6dp"
                         android:layout_toLeftOf="@+id/text_add_more_btn"
                         android:layout_toStartOf="@+id/text_add_more_btn"
@@ -378,7 +379,7 @@
                         android:layout_centerVertical="true"
                         android:text="@string/main_hall_more"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 

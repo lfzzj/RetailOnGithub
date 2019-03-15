@@ -7,19 +7,24 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.leo.java.myretailapps.adapter.MainHallAdapter;
 import com.leo.java.myretailapps.checkpoint.CheckpointAc;
+import com.leo.java.myretailapps.custom.TextSwitcherAnimation;
 import com.leo.java.myretailapps.guild_hall.GuildActivity;
 import com.leo.java.myretailapps.login.LoginActivity;
 import com.leo.java.myretailapps.model.HallGridBean;
@@ -57,6 +62,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class MainHallActivity extends AppCompatActivity {
     LocationManager lm;
+    List<String> texts;
 
     @BindView(R.id.hall_grid)
     GridView hallGrid;
@@ -70,6 +76,8 @@ public class MainHallActivity extends AppCompatActivity {
     TextView temp;
     @BindView(R.id.main_hall_register_img)
     ImageView mainHallRegisterImg;
+    @BindView(R.id.ad_textSwitcher)
+    TextSwitcher adTextSwitcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +92,21 @@ public class MainHallActivity extends AppCompatActivity {
 
         Util.getInstance(this).showPermission(this);
         AnimUtil.getInstance(this).RotationAnim(mainHallRegisterImg);
+
+        adTextSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView t = new TextView(MainHallActivity.this);
+                t.setTextColor(getResources().getColor(R.color.color_ffa200));
+                t.setTextSize(14f);
+                return t;
+            }
+        });
+        texts = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            texts.add("循环....." + i);
+        }
+        new TextSwitcherAnimation(adTextSwitcher,texts).create();
     }
 
     private void initPager() {
