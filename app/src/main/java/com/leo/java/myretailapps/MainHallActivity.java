@@ -21,16 +21,17 @@ import android.widget.ViewSwitcher;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.leo.java.myretailapps.adapter.MainHallAdapter;
-import com.leo.java.myretailapps.view.checkpoint.CheckpointAc;
 import com.leo.java.myretailapps.custom.TextSwitcherAnimation;
+import com.leo.java.myretailapps.model.HallGridBean;
+import com.leo.java.myretailapps.util.Util;
+import com.leo.java.myretailapps.util.animation.AnimUtil;
+import com.leo.java.myretailapps.view.ad.AdAc;
+import com.leo.java.myretailapps.view.checkpoint.CheckpointAc;
 import com.leo.java.myretailapps.view.guild_hall.GuildActivity;
 import com.leo.java.myretailapps.view.login.LoginActivity;
-import com.leo.java.myretailapps.model.HallGridBean;
 import com.leo.java.myretailapps.view.order.OrderAc;
 import com.leo.java.myretailapps.view.register.HelpOtherRegisterAc;
 import com.leo.java.myretailapps.view.setting.SettingAc;
-import com.leo.java.myretailapps.util.Util;
-import com.leo.java.myretailapps.util.animation.AnimUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +77,8 @@ public class MainHallActivity extends AppCompatActivity {
     ImageView mainHallRegisterImg;
     @BindView(R.id.ad_textSwitcher)
     TextSwitcher adTextSwitcher;
+    @BindView(R.id.user_level)
+    TextView userLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +90,11 @@ public class MainHallActivity extends AppCompatActivity {
         setSupportActionBar(mToolbarTb);
         initPager();
         getLocatioin();
+        initUI();
+    }
 
+    private void initUI() {
+        userLevel.setText(getResources().getString(R.string.vip_13));
         Util.getInstance(this).showPermission(this);
         AnimUtil.getInstance(this).RotationAnim(mainHallRegisterImg);
 
@@ -104,8 +111,9 @@ public class MainHallActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             texts.add("循环....." + i);
         }
-        new TextSwitcherAnimation(adTextSwitcher,texts).create();
+        new TextSwitcherAnimation(adTextSwitcher, texts).create();
     }
+
 
     private void initPager() {
         List<HallGridBean> halls = new ArrayList<>();
@@ -142,7 +150,7 @@ public class MainHallActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.user_info, R.id.register_now_btn})
+    @OnClick({R.id.user_info, R.id.register_now_btn, R.id.main_hall_ad})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.user_info:
@@ -150,6 +158,9 @@ public class MainHallActivity extends AppCompatActivity {
                 break;
             case R.id.register_now_btn:
                 startActivity(new Intent(MainHallActivity.this, LoginActivity.class));
+                break;
+            case R.id.main_hall_ad:
+                startActivity(new Intent(MainHallActivity.this, AdAc.class));
                 break;
         }
     }

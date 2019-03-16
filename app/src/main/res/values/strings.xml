@@ -6,8 +6,8 @@
 
     <!--大廳-->
     <string name="main_hall_text_id">ID:</string>
-    <string name="main_hall_text_level">LEVEL:</string>
-    <string name="main_hall_text_name">NAME:</string>
+    <string name="main_hall_text_level">等级:</string>
+    <string name="main_hall_text_name">姓名:</string>
     <string name="main_hall_text_post">推荐人:</string>
     <string name="main_hall_level_des">等级介绍</string>
     <string name="main_hall_add">公告</string>
@@ -86,9 +86,19 @@
     <string name="vip_next">下一级</string>
     <string name="vip_text_current">白金会员</string>
     <string name="vip_text_next">铂金会员</string>
-    <string name="vip_1">一级白金会员</string>
-    <string name="vip_2">二级白金会员</string>
-    <string name="vip_3">三级白金会员</string>
+    <string name="vip_1">一级白银会员</string>
+    <string name="vip_2">二级白银会员</string>
+    <string name="vip_3">三级白银会员</string>
+    <string name="vip_4">四级黄金会员</string>
+    <string name="vip_5">五级黄金会员</string>
+    <string name="vip_6">六级黄金会员</string>
+    <string name="vip_7">七级紫金会员</string>
+    <string name="vip_8">八级紫金会员</string>
+    <string name="vip_9">九级紫金会员</string>
+    <string name="vip_10">十级钻石会员</string>
+    <string name="vip_11">十一级砖石会员</string>
+    <string name="vip_12">十二级砖石会员</string>
+    <string name="vip_13">十三级至尊会员</string>
     <string name="vip_now_wx">推荐人微信:</string>
     <string name="vip_wechart_tips">微信号已复制,点击按钮去微信粘贴,搜索好友领取任务吧!</string>
     <string name="vip_check_progress">闯关进度</string>
@@ -104,5 +114,24 @@
     <string name="order_check_wx">微信:</string>
     <string name="order_check_zfb">支付宝:</string>
     <string name="order_check_level">闯关等级:</string>
+    <string name="order_info_title">订单详情</string>
+    <string name="order_info_states_wait">待确认</string>
+    <string name="order_info_user_info">闯关人信息</string>
+    <string name="order_info_user_level">闯关人等级</string>
+    <string name="order_info_good_info">发货信息</string>
+
+
+    <string name="order_info_name">姓名：</string>
+    <string name="order_info_phone">手机号：</string>
+    <string name="order_info_phone_more">备用手机号：</string>
+    <string name="order_info_wx">微信号：</string>
+    <string name="order_info_zfb">支付宝号：</string>
+    <string name="order_info_good_way">发货方式</string>
+    <string name="order_info_good_states">发货状态：</string>
+    <string name="order_info_good_adress">收货地址：</string>
+    <string name="order_info_good_receiver">收件人：</string>
+    <string name="order_info_good_phone">收件人手机号：</string>
+    <string name="order_info_good_company">快递公司：</string>
+    <string name="order_info_good_number">快递单号：</string>
 
 </resources>

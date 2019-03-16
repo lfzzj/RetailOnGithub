@@ -1,6 +1,7 @@
 package com.leo.java.myretailapps.view.order;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.leo.java.myretailapps.R;
+import com.leo.java.myretailapps.interface_pkg.OrderItemClilckInterface;
 import com.leo.java.myretailapps.model.UserEntity;
 import com.leo.java.myretailapps.recyclerview_adapter.OrderRecyclerAdapter;
 
@@ -64,7 +66,12 @@ public class OrderItemFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         orderItemFrgRecyclerview.setLayoutManager(manager);
 
-        adapter = new OrderRecyclerAdapter(getActivity(), users);
+        adapter = new OrderRecyclerAdapter(getActivity(), users, new OrderItemClilckInterface() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(getActivity(),OrderItemInfoAc.class));
+            }
+        });
         orderItemFrgRecyclerview.setAdapter(adapter);
     }
 

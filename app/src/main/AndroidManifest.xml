@@ -35,6 +35,7 @@
         <activity android:name=".view.checkpoint.CheckpointAc" />
         <activity android:name=".view.order.OrderAc" />
         <activity android:name=".view.ad.AdAc" />
+        <activity android:name=".view.order.OrderItemInfoAc" />
     </application>
 
 </manifest>

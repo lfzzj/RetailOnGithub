@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.leo.java.myretailapps.R;
 import com.leo.java.myretailapps.custom.GlideRoundTransform;
+import com.leo.java.myretailapps.interface_pkg.OrderItemClilckInterface;
 import com.leo.java.myretailapps.model.UserEntity;
 import com.leo.java.myretailapps.util.DisplayUtil;
 
@@ -34,12 +35,14 @@ import butterknife.ButterKnife;
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.OrderViewHolder> {
     private Context context;
     private List<UserEntity> list;
+    private OrderItemClilckInterface orderItemClilckInterface;
 
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS", Locale.getDefault());
 
-    public OrderRecyclerAdapter(Context context, List<UserEntity> list) {
+    public OrderRecyclerAdapter(Context context, List<UserEntity> list, OrderItemClilckInterface orderItemClilckInterface) {
         this.context = context;
         this.list = list;
+        this.orderItemClilckInterface = orderItemClilckInterface;
     }
 
     @NonNull
@@ -51,6 +54,13 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder viewHolder, int i) {
+        final int position = i;
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderItemClilckInterface.onItemClick(v,position);
+            }
+        });
         UserEntity u = list.get(i);
         viewHolder.itemName.setText(u.getNick());
         viewHolder.itemPhone.setText("13888888888");

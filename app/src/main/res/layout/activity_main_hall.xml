@@ -43,8 +43,8 @@
 
             <ImageView
                 android:id="@+id/weather_img"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="4dp"
@@ -236,7 +236,6 @@
                         android:layout_marginTop="8dp"
                         android:layout_toEndOf="@+id/text_level"
                         android:layout_toRightOf="@+id/text_level"
-                        android:text="level45455"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -325,6 +324,7 @@
                 android:layout_marginTop="12dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:id="@+id/main_hall_ad"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
