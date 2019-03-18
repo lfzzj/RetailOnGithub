@@ -134,4 +134,14 @@
     <string name="order_info_good_company">快递公司：</string>
     <string name="order_info_good_number">快递单号：</string>
 
+    <!--修改密码-->
+    <string name="change_password">修改登录密码</string>
+    <string name="change_password_old">请输入旧密码</string>
+    <string name="change_password_new">请输入新密码</string>
+    <string name="change_password_ok">确认修改</string>
+    <string name="change_password_not_empty">密碼不能為空</string>
+    <string name="change_password_beyond_six">密碼長度不能低於6位元</string>
+    <string name="change_password_over_six">密碼長度不能超過16位元</string>
+    <string name="change_password_consist">密碼只能由數位與字母組成</string>
+
 </resources>

@@ -7,10 +7,12 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -21,7 +23,12 @@ import android.widget.ViewSwitcher;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.leo.java.myretailapps.adapter.MainHallAdapter;
+import com.leo.java.myretailapps.adapter.MyPagerAdapter;
+import com.leo.java.myretailapps.custom.CubeOutTransformer;
+import com.leo.java.myretailapps.custom.FixedSpeedScroller;
+import com.leo.java.myretailapps.custom.ParallaxTransformer;
 import com.leo.java.myretailapps.custom.TextSwitcherAnimation;
+import com.leo.java.myretailapps.model.BannerBean;
 import com.leo.java.myretailapps.model.HallGridBean;
 import com.leo.java.myretailapps.util.Util;
 import com.leo.java.myretailapps.util.animation.AnimUtil;
@@ -33,6 +40,7 @@ import com.leo.java.myretailapps.view.order.OrderAc;
 import com.leo.java.myretailapps.view.register.HelpOtherRegisterAc;
 import com.leo.java.myretailapps.view.setting.SettingAc;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -62,6 +70,9 @@ import io.reactivex.schedulers.Schedulers;
 public class MainHallActivity extends AppCompatActivity {
     LocationManager lm;
     List<String> texts;
+    private Runnable scrollRunnable;
+    private MyPagerAdapter myPagerAdapter;
+    private List<BannerBean> bannerList;
 
     @BindView(R.id.hall_grid)
     GridView hallGrid;
@@ -79,6 +90,8 @@ public class MainHallActivity extends AppCompatActivity {
     TextSwitcher adTextSwitcher;
     @BindView(R.id.user_level)
     TextView userLevel;
+    @BindView(R.id.banner_vp)
+    ViewPager bannerVp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +125,19 @@ public class MainHallActivity extends AppCompatActivity {
             texts.add("循环....." + i);
         }
         new TextSwitcherAnimation(adTextSwitcher, texts).create();
+
+        initBannerView();
+        bannerList = new ArrayList<>();
+        BannerBean b = new BannerBean("http://img2.imgtn.bdimg.com/it/u=4162468462,2356552027&fm=214&gp=0.jpg", "https://www.baidu.com");
+        bannerList.add(b);
+        BannerBean b2 = new BannerBean("http://img2.imgtn.bdimg.com/it/u=4162468462,2356552027&fm=214&gp=0.jpg", "https://www.baidu.com");
+        bannerList.add(b2);
+        BannerBean b3 = new BannerBean("http://img2.imgtn.bdimg.com/it/u=4162468462,2356552027&fm=214&gp=0.jpg", "https://www.baidu.com");
+        bannerList.add(b3);
+
+        myPagerAdapter = new MyPagerAdapter(bannerList, this);
+        bannerVp.setAdapter(myPagerAdapter);
+        startScroll((1000 * bannerList.size()), true);
     }
 
 
@@ -241,6 +267,74 @@ public class MainHallActivity extends AppCompatActivity {
                         temp.setText(String.format("%s℃", dataObject.get(0).getNow().getTmp()));
                     }
                 });
+    }
+
+    private void initBannerView() {
+        bannerVp.setPageTransformer(true, new ParallaxTransformer());
+        bannerVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == bannerList.size() - 1) {
+                    bannerVp.setCurrentItem(0, true);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    /**
+     * 开始滚动
+     *
+     * @param pager        页
+     * @param smoothScroll 是否自动滚动
+     */
+    public void startScroll(int pager, boolean smoothScroll) {
+        stopScroll();//防止重复启动
+        if (bannerVp == null || bannerList.size() <= 0)
+            return;
+        pager = pager >= myPagerAdapter.getCount() - 1 ? 0 : pager;//滚动到最后一页时，从头开始
+        bannerVp.setCurrentItem(pager, smoothScroll);
+        long delayMillis = 10000;
+
+        bannerVp.postDelayed(scrollRunnable = new Runnable() {
+            @Override
+            public void run() {
+                setViewPagerSpeed();
+                startScroll(bannerVp.getCurrentItem() + 1, true);
+            }
+        }, delayMillis);
+    }
+
+    /**
+     * 设置滚动速度
+     */
+    private void setViewPagerSpeed() {
+        try {
+            Field field = ViewPager.class.getDeclaredField("mScroller");
+            field.setAccessible(true);
+            FixedSpeedScroller scroller = new FixedSpeedScroller(this, new LinearInterpolator());
+            field.set(bannerVp, scroller);
+            scroller.setmDuration(600);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 停止滚动
+     */
+    public void stopScroll() {
+        if (scrollRunnable != null)
+            bannerVp.removeCallbacks(scrollRunnable);
     }
 
 }

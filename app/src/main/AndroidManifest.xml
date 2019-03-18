@@ -36,6 +36,7 @@
         <activity android:name=".view.order.OrderAc" />
         <activity android:name=".view.ad.AdAc" />
         <activity android:name=".view.order.OrderItemInfoAc" />
+        <activity android:name=".view.changepass.ChangePassAc" />
     </application>
 
 </manifest>
